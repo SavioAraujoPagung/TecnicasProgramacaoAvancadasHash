@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "Lista.h"
+//#include "Lista.h"
+#include "hash.h"
 
 
  int main(int argc, char *argv[]) {	
