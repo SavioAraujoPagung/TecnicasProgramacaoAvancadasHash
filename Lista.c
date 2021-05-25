@@ -3,35 +3,35 @@
 #include <string.h>
 #include "Lista.h"
 
+void inicializarLista(LISTA *lista){
+	lista->fim=NULL;
+	lista->inicio=NULL;
+}
+
 int listaVazia(LISTA *lista){
 	if ((lista->inicio == NULL)&&(lista->fim == NULL)) return 0;
 	else return 1;
 }
 
 void exibir(LISTA *lista){
-	printf("\n\n\tLISTAR POR CODIGO\n");
-	printf("\t------\n");
 	NO *no = (NO*) malloc(sizeof(NO));
 	no = lista->inicio;
 	if(no == NULL){
-		printf("\nLista vazia\n");
+		//printf("\nLista vazia\n");
 	}
 	while(no!=NULL){
 		printf("Nome = %s\n", no->aluno->nome);
 		printf("Matricula = %d\n", no->aluno->matricula);
+		printf("Nota = %.2f\n", no->aluno->nota);
 		printf("-----------------------------\n");
 		no = no->proximo;
 	}
 	printf("\n==============================================\n");
 }
 
-void inserir(LISTA *lista, char nome[30], int matricula, double nota){
+void inserirLista(LISTA *lista, ALUNO *aluno){
 	NO *aux = (NO*) malloc(sizeof(NO)); //auxilia para percorrer a lista 
 	NO *noNovo = (NO*) malloc(sizeof(NO)); //criacao do novo NO
-	ALUNO *aluno = (ALUNO*) malloc(sizeof(ALUNO)); //criacao do novo Aluno para colocar no NO
-	
-	aluno->matricula = matricula;
-	aluno->nota = nota;
 	
 	//inicializando noNovo
 	noNovo->anterior = NULL;

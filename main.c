@@ -7,22 +7,39 @@
 
 
  int main(int argc, char *argv[]) {	
+	HASHABERTA *hash = (HASHABERTA*) malloc(sizeof(HASHABERTA));
+	inicializarHash(hash, 10);
 	
-	LISTA* lista = (LISTA*) malloc(sizeof(LISTA));
-	lista->fim=NULL;
-	lista->inicio=NULL;
-	char nome[30] = "opaaaaaaaaan";
-	int matricula = 1;
-	double nota = 1.7;
-	//['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',]
+	char nome[30] = "savioPagung";
+	ALUNO *aluno = (ALUNO*) malloc(sizeof(ALUNO)); //criacao do novo Aluno para colocar no NO
+	aluno->matricula = 0;
+	aluno->nota = 10.0;
+	strcpy(aluno->nome, nome);	
+	inserirHash(hash, aluno);
 	
-	inserir(lista, nome, matricula, nota);
-	inserir(lista, nome, 3, nota);
-	//lerArquivo(listaPorNome, listaPorCodigo);
-	exibir(lista);
-
-	//int maxcod = 0, mincod=1000000;
-	//lerArquivo(listaPorNome, listaPorCodigo, "entrada.txt");
+	char nomeDois[30] = "SavioAraujo";
+	ALUNO *alunoDois = (ALUNO*) malloc(sizeof(ALUNO)); //criacao do novo Aluno para colocar no NO
+	alunoDois->matricula = 1;
+	alunoDois->nota = 10.0;
+	strcpy(alunoDois->nome, nomeDois);	
+	inserirHash(hash, alunoDois);
+	
+	char nomeTres[30] = "SavioAP";
+	ALUNO *alunoTres = (ALUNO*) malloc(sizeof(ALUNO)); //criacao do novo Aluno para colocar no NO
+	alunoTres->matricula = 2;
+	alunoTres->nota = 10.0;
+	strcpy(alunoDois->nome, nomeTres);	
+	inserirHash(hash, alunoTres);
+	
+	char nomeQuatro[30] = "SavioA";
+	ALUNO *alunoQuatro = (ALUNO*) malloc(sizeof(ALUNO)); //criacao do novo Aluno para colocar no NO
+	alunoQuatro->matricula = 9;
+	alunoQuatro->nota = 10.0;
+	strcpy(alunoDois->nome, nomeQuatro);	
+	inserirHash(hash, alunoQuatro);
+	
+	
+	exibirHash(hash);
 	
 	return 0;
 }

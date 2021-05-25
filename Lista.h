@@ -23,11 +23,13 @@ typedef struct lista{
 	NO *fim;
 }LISTA;
 
+void inicializarLista(LISTA *lista);
+
 int listaVazia(LISTA *lista);
 
 void exibir(LISTA *lista);
 
-void inserir(LISTA *lista, char nome[30], int matricula, double nota);
+void inserirLista(LISTA *lista, ALUNO *aluno);
 
 int excluir(LISTA *lista, int matricula);
 
