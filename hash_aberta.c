@@ -15,7 +15,7 @@ void inicializar(HASHABERTA *hash, double tamanhoInicial, double fatorCarga, dou
 		hash->tabelaHash[i]->continuar = 0;
 	}
 }
-/**/
+
 void exibirHashAberta(HASHABERTA *hash){
 	int i=0;
 	printf("******** TABELA HASH ABERTA ********\n");
@@ -39,8 +39,32 @@ void exibirHashAberta(HASHABERTA *hash){
 	}
 }
 
+int fancaoHashAberta(int tamanhoAtual, int matricula){
+	int posicao;
+	posicao = matricula%tamanhoAtual;
+	return 4;
+}
+ALUNO* consultarMatriculaHashAberta(HASHABERTA *hash, int matricula){
+	ALUNO* aluno = (ALUNO* ) malloc(sizeof(ALUNO*));
+	aluno = NULL;
+	int posicao=0;
+	
+	int tamanho = hash->tamanho*1;	
+	int posicao=fancaoHashAberta(tamanho, matricula);
+	
+	int i=posicao;
+	if(hash->tabelaHash[i]->aluno->matricula == matricula){
+		aluno=hash->tabelaHash[i]->aluno;
+		return aluno;
+	}else{
+		//continuar logica de recursividade
+		aluno(HASHABERTA *hash, int matricula)
+	}
+	aluno=hash->tabelaHash[i]->aluno;
+			
+	return aluno;
+}
 
-void inserirHash(HASHABERTA *hash, ALUNO *aluno);
-ALUNO* consultarMatriculaHash(HASHABERTA *hash, int matricula);
+void inserirHashAberta(HASHABERTA *hash, ALUNO *aluno);
 void excluirHash(HASHABERTA *hash, int matricula);
 void exibirHash(HASHABERTA *hash);

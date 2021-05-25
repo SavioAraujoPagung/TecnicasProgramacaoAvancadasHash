@@ -9,6 +9,7 @@
 	HASHABERTA *hash = (HASHABERTA*) malloc(sizeof(HASHABERTA));
 	inicializar(hash, 10.0, 0.8, 3.0);
 	exibirHashAberta(hash);
+	ALUNO* aluno = consultarMatriculaHashAberta(hash, 5);
 	return 0;
 }
 
