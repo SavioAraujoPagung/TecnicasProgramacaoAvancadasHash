@@ -3,7 +3,7 @@
 #include <string.h>
 #include "hash.h"
 
-void inicializarHash(HASHABERTA *hash, int tamanho){
+void inicializarHash(HASHFECHADA *hash, int tamanho){
 	hash->tamanhoAtual = tamanho;
 	int i=0;
 	hash->tabelaHash = (LISTA**) malloc(sizeof(LISTA**)*tamanho);
@@ -13,7 +13,7 @@ void inicializarHash(HASHABERTA *hash, int tamanho){
 	}
 }
 
-void exibirHash(HASHABERTA *hash){
+void exibirHash(HASHFECHADA *hash){
 	int i=0;
 	printf("******** TABELA HASH FECHADA ********\n");
 	printf("-------------------------------------\n");
@@ -23,7 +23,7 @@ void exibirHash(HASHABERTA *hash){
 	}
 }
 
-void inserirHash(HASHABERTA *hash, ALUNO *aluno){
+void inserirHash(HASHFECHADA *hash, ALUNO *aluno){
 	int posicao = funcaoHash(hash->tamanhoAtual, aluno->matricula);
 	inserirLista(hash->tabelaHash[posicao], aluno);
 }
@@ -33,14 +33,14 @@ int funcaoHash(int tamanhoAtual, int matricula){
 	return posicao;
 }
 
-ALUNO* consultarMatriculaHash(HASHABERTA *hash, int matricula){
+ALUNO* consultarMatriculaHash(HASHFECHADA *hash, int matricula){
 	ALUNO *aluno = (ALUNO*) malloc(sizeof(ALUNO)); 
 	int posicao = funcaoHash(hash->tamanhoAtual, matricula);
 	aluno = consultarPorMatriculaLista(hash->tabelaHash[posicao], matricula);
 	return aluno;
 }
 
-void excluirHash(HASHABERTA *hash, int matricula){
+void excluirHash(HASHFECHADA *hash, int matricula){
 	int posicao = funcaoHash(hash->tamanhoAtual, matricula);
 	excluir(hash->tabelaHash[posicao], matricula);
 }
