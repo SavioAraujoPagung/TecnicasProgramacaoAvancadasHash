@@ -8,15 +8,15 @@
 (iv) exibir o conteudo da hash inteira.
 */
 
-typedef struct HashAberta{
+typedef struct HashFechada{
 	LISTA **tabelaHash;
 	int tamanhoAtual;
 	double ocupacao;
-}HASHABERTA;
+}HASHFECHADA;
 
-void exibirHash(HASHABERTA *hash);
-void inicializarHash(HASHABERTA *hash, int tamanho);
-void inserirHash(HASHABERTA *hash, ALUNO *aluno);
-ALUNO* consultarMatriculaHash(HASHABERTA *hash, int matricula);
-void excluirHash(HASHABERTA *hash, int matricula);
+void exibirHash(HASHFECHADA *hash);
+void inicializarHash(HASHFECHADA *hash, int tamanho);
+void inserirHash(HASHFECHADA *hash, ALUNO *aluno);
+ALUNO* consultarMatriculaHash(HASHFECHADA *hash, int matricula);
+void excluirHash(HASHFECHADA *hash, int matricula);
 
