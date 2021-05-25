@@ -33,6 +33,18 @@ int funcaoHash(int tamanhoAtual, int matricula){
 	return posicao;
 }
 
-ALUNO* consultarMatricula(HASHABERTA **hash, int matricula);
+ALUNO* consultarMatriculaHash(HASHABERTA *hash, int matricula){
+	ALUNO *aluno = (ALUNO*) malloc(sizeof(ALUNO)); 
+	int posicao = funcaoHash(hash->tamanhoAtual, matricula);
+	aluno = consultarPorMatriculaLista(hash->tabelaHash[posicao], matricula);
+	return aluno;
+}
 
-void excluirHash(HASHABERTA **hash, int matricula);
+void excluirHash(HASHABERTA *hash, int matricula){
+	int posicao = funcaoHash(hash->tamanhoAtual, matricula);
+	excluir(hash->tabelaHash[posicao], matricula);
+}
+
+
+
+

@@ -24,16 +24,11 @@ typedef struct lista{
 }LISTA;
 
 void inicializarLista(LISTA *lista);
-
 int listaVazia(LISTA *lista);
-
 void exibir(LISTA *lista);
-
 void inserirLista(LISTA *lista, ALUNO *aluno);
-
 int excluir(LISTA *lista, int matricula);
-
-ALUNO *consultarPorCodigo (LISTA *lista, int codigo);
+ALUNO *consultarPorMatriculaLista(LISTA *lista, int matricula);
 
 
 

@@ -29,6 +29,16 @@ void exibir(LISTA *lista){
 	printf("\n==============================================\n");
 }
 
+void exibirAluno(ALUNO *aluno){
+	if(aluno!=NULL){
+		printf("------ALUNO-FILTRADO--------\n");
+		printf("Nome = %s\n", aluno->nome);
+		printf("Matricula = %d\n", aluno->matricula);
+		printf("Nota = %.2f\n", aluno->nota);
+		printf("-----------------------------\n");
+	}
+}
+
 void inserirLista(LISTA *lista, ALUNO *aluno){
 	NO *aux = (NO*) malloc(sizeof(NO)); //auxilia para percorrer a lista 
 	NO *noNovo = (NO*) malloc(sizeof(NO)); //criacao do novo NO
@@ -122,7 +132,7 @@ int excluir(LISTA *lista, int matricula){
 	}
 	
  
-	//	encontrar o NO responsavel LCodigo
+	//	encontrar o NO responsavel 
 	lixo = lista->inicio;
 	while((lixo!=NULL)&&(lixo->aluno->matricula!=matricula)){ 
 		lixo=lixo->proximo;
@@ -133,7 +143,6 @@ int excluir(LISTA *lista, int matricula){
 		return 0; 
 	}
 	
-	
 	//remover os NO's
 	remover(lixo, lista);
 
@@ -141,7 +150,7 @@ int excluir(LISTA *lista, int matricula){
 	//exibir(lista);	
 }
 
-ALUNO *consultarMatricula (LISTA *lista, int matricula){
+ALUNO *consultarPorMatriculaLista(LISTA *lista, int matricula){
 	// ponteiros para auxiliar a exclusao ...
 	NO *noAtual = (NO*) malloc(sizeof(NO));	
 	
@@ -154,11 +163,13 @@ ALUNO *consultarMatricula (LISTA *lista, int matricula){
 	
 	//nao encontrado
 	if(noAtual == NULL) {
-		printf("\nALUNO ENCONTRADO! \n\n");
+		printf("\nALUNO NAO ENCONTRADO! \n\n");
 		return NULL;
 	}else{
+		exibirAluno(noAtual->aluno);
 		return noAtual->aluno;
 	}
+	
 }
 
 

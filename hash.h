@@ -17,6 +17,6 @@ typedef struct HashAberta{
 void exibirHash(HASHABERTA *hash);
 void inicializarHash(HASHABERTA *hash, int tamanho);
 void inserirHash(HASHABERTA *hash, ALUNO *aluno);
-ALUNO* consultarMatricula(HASHABERTA **hash, int matricula);
-void excluirHash(HASHABERTA **hash, int matricula);
+ALUNO* consultarMatriculaHash(HASHABERTA *hash, int matricula);
+void excluirHash(HASHABERTA *hash, int matricula);
 

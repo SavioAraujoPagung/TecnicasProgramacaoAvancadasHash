@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-//#include "Lista.h"
 #include "hash.h"
 
 
@@ -10,9 +9,10 @@
 	HASHABERTA *hash = (HASHABERTA*) malloc(sizeof(HASHABERTA));
 	inicializarHash(hash, 10);
 	
+	//inserindo valores na hash
 	char nome[30] = "savioPagung";
 	ALUNO *aluno = (ALUNO*) malloc(sizeof(ALUNO)); //criacao do novo Aluno para colocar no NO
-	aluno->matricula = 0;
+	aluno->matricula = 11;
 	aluno->nota = 10.0;
 	strcpy(aluno->nome, nome);	
 	inserirHash(hash, aluno);
@@ -28,18 +28,29 @@
 	ALUNO *alunoTres = (ALUNO*) malloc(sizeof(ALUNO)); //criacao do novo Aluno para colocar no NO
 	alunoTres->matricula = 2;
 	alunoTres->nota = 10.0;
-	strcpy(alunoDois->nome, nomeTres);	
+	strcpy(alunoTres->nome, nomeTres);	
 	inserirHash(hash, alunoTres);
 	
 	char nomeQuatro[30] = "SavioA";
 	ALUNO *alunoQuatro = (ALUNO*) malloc(sizeof(ALUNO)); //criacao do novo Aluno para colocar no NO
 	alunoQuatro->matricula = 9;
 	alunoQuatro->nota = 10.0;
-	strcpy(alunoDois->nome, nomeQuatro);	
+	strcpy(alunoQuatro->nome, nomeQuatro);	
 	inserirHash(hash, alunoQuatro);
 	
-	
+	//exibindo valores da tabela hash
 	exibirHash(hash);
+	
+	//buscando um aluno por matricula
+	int matriculaParaFiltrar = 9;
+	ALUNO *alunoFiltrado = (ALUNO*) malloc(sizeof(ALUNO)); 
+	alunoFiltrado = consultarMatriculaHash(hash, matriculaParaFiltrar);
+	
+	//removendo aluno
+	int matriculaParaExcluido = 2;
+	excluirHash(hash, matriculaParaExcluido);
+	exibirHash(hash);//exibindo valores da tabela hash apos excluir
+	
 	
 	return 0;
 }
