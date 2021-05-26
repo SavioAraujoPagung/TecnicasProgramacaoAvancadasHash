@@ -27,6 +27,7 @@ void exibirInformacoesHashAberta(HASHABERTA *hash){
 	printf("-> Quantidade: %.2f\n\n", hash->quantidade);
 	printf("************************************\n");
 }
+
 void exibirHashAberta(HASHABERTA *hash){
 	int i=0;
 	printf("******** TABELA HASH ABERTA ********\n");
@@ -99,18 +100,18 @@ void inserirHashAberta(HASHABERTA *hash, ALUNO *aluno){
 	double fatorCargaAtual;
 	int posicao;
 	if(consultarMatriculaHashAberta(hash, aluno->matricula)==NULL){//ALuno já matriculado?
+		exibirInformacoesHashAberta(hash);
 		fatorCargaAtual = (hash->quantidade+1)/hash->tamanho; //valor para conferir se tem que espaço para inserir mais 1 aluno
 		if(fatorCargaAtual<hash->fatorCarga){//verificando se o fator de carga deixa inserir
-			printf("\n INSERINDO \n");
 			int tamanho = hash->tamanho*1; //tranformando para int
 			posicao = fancaoHashAberta(tamanho, aluno->matricula);
 			hash->quantidade = hash->quantidade+1;//aumentar a quantidade
 			hash->tabelaHash[posicao]->continuar = 1;
 			hash->tabelaHash[posicao]->aluno = aluno;
 		}else{//expandindo a hash e inserindo nota
-			printf("\n 	EXPANDINDO \n");
-			hash = expansao(hash);
-			inserirHashAberta(hash, aluno);
+			//printf("\n 	EXPANDINDO \n");
+			//hash = expansao(hash);
+			//inserirHashAberta(hash, aluno);
 			exibirInformacoesHashAberta(hash);		
 		}
 	}else{
@@ -118,12 +119,11 @@ void inserirHashAberta(HASHABERTA *hash, ALUNO *aluno){
 	}
 }
 
-HASHABERTA* expansao(HASHABERTA *hash){
+HASHABERTA* expansao(HASHABERTA *hash){ //multiplica a qunatidade pelo fator de cargo
 	HASHABERTA *hashExpandida = (HASHABERTA*) malloc(sizeof(HASHABERTA*));
-	double novoTamanho = (hash->tamanho*hash->expansao);
+	double novoTamanho = ((hash->tamanho)*(hash->expansao));
 	inicializar(hashExpandida, novoTamanho, hash->fatorCarga, hash->expansao);
-	hashExpandida->quantidade = hash->quantidade+1;
-	
+	hashExpandida->quantidade = 0;
 	int i;
 	for(i=0; i<hash->tamanho; i++){
 		if(hash->tabelaHash[i]->continuar==1){
@@ -133,8 +133,7 @@ HASHABERTA* expansao(HASHABERTA *hash){
 	return hashExpandida;
 }
 
-void excluirHash(HASHABERTA *hash, int matricula);
-void exibirHash(HASHABERTA *hash);
+void excluirAlunoHashAberta(HASHABERTA *hash, int matricula);
 
 
 

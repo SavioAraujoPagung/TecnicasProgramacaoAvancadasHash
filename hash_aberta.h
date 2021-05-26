@@ -25,7 +25,7 @@ void exibirInformacoesHashAberta(HASHABERTA *hash);
 void inserirHashAberta(HASHABERTA *hash, ALUNO *aluno);
 HASHABERTA* expansao(HASHABERTA *hash);
 ALUNO* consultarMatriculaHashAberta(HASHABERTA *hash, int matricula);
-void excluirHash(HASHABERTA *hash, int matricula);
+void excluirAlunoHashAberta(HASHABERTA *hash, int matricula);
 
 
 

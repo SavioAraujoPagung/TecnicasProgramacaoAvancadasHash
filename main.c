@@ -18,11 +18,9 @@
 	aluno->nota = 9.8;
 	inserirHashAberta(hash, aluno);
 	exibirHashAberta(hash);
+	hash = expansao(hash);
+	exibirHashAberta(hash);
 	
-	//exibirInformacoesHashAberta(hash);
-	//hash = expansao(hash);
-	//printf("apos expandir\n");
-	//exibirInformacoesHashAberta(hash);
 	
 	return 0;
 }
