@@ -87,6 +87,7 @@ void inserirHashAberta(HASHABERTA *hash, ALUNO *aluno){
 		int posicao;
 		posicao = fancaoHashAberta((hash->tamanho*1), aluno->matricula);
 		//verificar posicao e inserir ... 
+		
 	}else{
 		printf("\n*** ESSA MATRICULA JÁ ESTA VINCULADA A UM ALUNO ***\n" );
 	}
