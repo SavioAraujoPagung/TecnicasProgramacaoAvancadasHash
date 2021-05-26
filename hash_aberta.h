@@ -16,11 +16,14 @@ typedef struct HashAberta{
 	double expansao;
 	double fatorCarga;
 	double tamanho;
+	double quantidade;
 }HASHABERTA;
  
 void inicializar(HASHABERTA *hash, double tamanhoInicial, double fatorCarga, double expansao);
 void exibirHashAberta(HASHABERTA *hash);
+void exibirInformacoesHashAberta(HASHABERTA *hash);
 void inserirHashAberta(HASHABERTA *hash, ALUNO *aluno);
+HASHABERTA* expansao(HASHABERTA *hash);
 ALUNO* consultarMatriculaHashAberta(HASHABERTA *hash, int matricula);
 void excluirHash(HASHABERTA *hash, int matricula);
 

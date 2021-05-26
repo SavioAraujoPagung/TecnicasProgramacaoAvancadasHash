@@ -10,10 +10,20 @@
  int main(int argc, char *argv[]) {	
  	setlocale(LC_ALL, "Portuguese");
  	
-	HASHABERTA *hash = (HASHABERTA*) malloc(sizeof(HASHABERTA));
-	inicializar(hash, 20.0, 0.8, 3.0);
+	HASHABERTA *hash = (HASHABERTA*) malloc(sizeof(HASHABERTA*));
+	inicializar(hash, 7.0, 0.8, 3.0);
+	
+	ALUNO* aluno = (ALUNO*) malloc(sizeof(ALUNO*));
+	aluno->matricula = 87;
+	aluno->nota = 9.8;
+	inserirHashAberta(hash, aluno);
 	exibirHashAberta(hash);
-	ALUNO* aluno = consultarMatriculaHashAberta(hash, 5);
+	
+	//exibirInformacoesHashAberta(hash);
+	//hash = expansao(hash);
+	//printf("apos expandir\n");
+	//exibirInformacoesHashAberta(hash);
+	
 	return 0;
 }
 
