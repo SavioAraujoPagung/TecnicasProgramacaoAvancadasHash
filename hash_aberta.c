@@ -2,18 +2,7 @@
 #include <stdlib.h>
 #include "hash_aberta.h"
 
-FILE* abrirLogHash(){
-	FILE* log;
-	log = fopen("HashAberta.log", "a");
-	if(log == NULL){
-		printf("Erro na abertura do arquivo!");
-	}
-	return log;
-}
-
 void inicializar(HASHABERTA *hash, double tamanhoInicial, double fatorCarga, double expansao){
-	FILE* log = abrirLogHash();
-	fprintf(log, "INICIALIZAR HASH\n");
 	hash->fatorCarga = fatorCarga;
 	hash->expansao   = expansao;
 	hash->tamanho    = tamanhoInicial;
@@ -26,21 +15,9 @@ void inicializar(HASHABERTA *hash, double tamanhoInicial, double fatorCarga, dou
 		hash->tabelaHash[i]->continuar = 0;
 		
 	}
-	fclose(log);
 }
 
 void exibirInformacoesHashAberta(HASHABERTA *hash){
-	FILE* log = abrirLogHash();
-	fprintf(log, "******** TABELA HASH ABERTA ********\n");
-	fprintf(log, "-------------------------------------\n");
-	fprintf(log, "\tSOBRE\n");
-	fprintf(log, "-> Tamanho atual  : %.2f\n", hash->tamanho);
-	fprintf(log, "-> Expansão       : %.2f\n", hash->expansao);
-	fprintf(log, "-> Fator de Carga : %.2f\n", hash->fatorCarga);
-	fprintf(log, "-> Quantidade     : %.2f\n\n", hash->quantidade);
-	fprintf(log, "************************************\n");
-	fclose(log);
-	
 	printf("******** TABELA HASH ABERTA ********\n");
 	printf("-------------------------------------\n");
 	printf("\tSOBRE\n");
@@ -54,7 +31,6 @@ void exibirInformacoesHashAberta(HASHABERTA *hash){
 }
 
 void exibirHashAberta(HASHABERTA *hash){
-	FILE* log = abrirLogHash();
 	int i=0;	
 	
 	printf("******** TABELA HASH ABERTA ********\n");
@@ -66,25 +42,16 @@ void exibirHashAberta(HASHABERTA *hash){
 	printf("-> Quantidade.......%.2f\n\n", hash->quantidade);
 	
 	for (i=0; i<hash->tamanho; i++){
-		fprintf(log, "\tPOSICAO %d\n", i);
 		printf("\tPOSICAO %d\n", i);
 		if(hash->tabelaHash[i]->aluno!=NULL){
-			fprintf(log, "-> Sobre o aluno \n");
-			fprintf(log, "Nome      = %s\n", hash->tabelaHash[i]->aluno->nome);
-			fprintf(log, "Matricula = %d\n", hash->tabelaHash[i]->aluno->matricula);
-			fprintf(log, "Nota      = %.2f\n", hash->tabelaHash[i]->aluno->nota);
-			
 			printf("-> Sobre o aluno: \n");
 			printf("Nome      = %s\n", hash->tabelaHash[i]->aluno->nome);
 			printf("Matricula = %d\n", hash->tabelaHash[i]->aluno->matricula);
 			printf("Nota      = %.2f\n", hash->tabelaHash[i]->aluno->nota);
 		}
-		fprintf(log, "\n--- continuar: %d\n", hash->tabelaHash[i]->continuar);
 		printf("\n--- continuar: %d\n", hash->tabelaHash[i]->continuar); //verificação de consulta
-		fprintf(log, "-----------------------------\n");
 		printf("-----------------------------\n");
 	}
-	fclose(log);
 }
 
 int fancaoHashAberta(int tamanhoAtual, int matricula){
@@ -121,10 +88,6 @@ ALUNO* consultarMatriculaHashAberta(HASHABERTA *hash, int matricula){
 					j=-1;
 				}
 			}else {//não esta na lista
-				FILE* log = abrirLogHash();
-				fprintf(log, " *** ERRO AO CONSULTAR -> USUARIO NÃO ENCONTRADO %d ***\n", matricula);
-				printf(" ERRO AO CONSULTAR -> MATRICULA NÃO ENCONTRADA %d  ***\n", matricula);
-				fclose(log);
 				return NULL;
 			}
 		}
@@ -135,13 +98,10 @@ ALUNO* consultarMatriculaHashAberta(HASHABERTA *hash, int matricula){
 HASHABERTA* inserirHashAberta(HASHABERTA *hash, ALUNO *aluno){
 	double fatorCargaAtual;
 	int posicao;
-	FILE* log = abrirLogHash();
 	if(consultarMatriculaHashAberta(hash, aluno->matricula)==NULL){//ALuno já matriculado?
 		//exibirInformacoesHashAberta(hash);
 		fatorCargaAtual = (hash->quantidade+1)/hash->tamanho; //valor para conferir se tem que espaço para inserir mais 1 aluno
 		if(fatorCargaAtual<hash->fatorCarga){//verificando se o fator de carga deixa inserir
-			fprintf(log, "\n INSERINDO HASH \n");
-			printf("\n 	INSERINDO \n");
 			int tamanho = hash->tamanho*1; //tranformando para int
 			posicao = fancaoHashAberta(tamanho, aluno->matricula);
 			if(hash->tabelaHash[posicao]->aluno != NULL){
@@ -160,19 +120,13 @@ HASHABERTA* inserirHashAberta(HASHABERTA *hash, ALUNO *aluno){
 			hash->quantidade = hash->quantidade+1;//aumentar a quantidade
 			hash->tabelaHash[posicao]->continuar = 1;
 			hash->tabelaHash[posicao]->aluno = aluno;
-			hash->tabelaHash[posicao]->aluno->posicao = posicao;
-			
-			printf("\n->Aluno NOVO\nmatricula = %d\n", hash->tabelaHash[posicao]->aluno->matricula);
-			printf("posicao = %d\n", posicao);		
+			hash->tabelaHash[posicao]->aluno->posicao = posicao;		
 		}else{//expandindo a hash e inserindo nota
 			hash = expansao(hash);
 			inserirHashAberta(hash, aluno);
 		}
 	}else{
-		fprintf(log, "\n*** ESSA MATRICULA JÁ ESTA VINCULADA A UM ALUNO ***\n");
-		printf("\n*** ESSA MATRICULA JÁ ESTA VINCULADA A UM ALUNO ***\n" );
 	}
-	fclose(log);
 	return hash;
 }
 
@@ -202,7 +156,6 @@ void finalizarHashAberta(HASHABERTA *hash){
 }
 
 HASHABERTA* excluirAlunoHashAberta(HASHABERTA *hash, int matricula){
-	printf("excluindo aluno matricula = %d\n", matricula);
 	ALUNO* aluno = (ALUNO* ) malloc(sizeof(ALUNO*));
 	aluno = consultarMatriculaHashAberta(hash, matricula);
 	if(aluno!=NULL){
