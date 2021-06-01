@@ -10,6 +10,7 @@ typedef struct Aluno{
 	char nome[30];
 	int matricula;
 	double nota;
+	int posicao;
 }ALUNO;
 
 typedef struct No{

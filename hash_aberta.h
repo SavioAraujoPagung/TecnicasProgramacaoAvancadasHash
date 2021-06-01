@@ -22,10 +22,11 @@ typedef struct HashAberta{
 void inicializar(HASHABERTA *hash, double tamanhoInicial, double fatorCarga, double expansao);
 void exibirHashAberta(HASHABERTA *hash);
 void exibirInformacoesHashAberta(HASHABERTA *hash);
-void inserirHashAberta(HASHABERTA *hash, ALUNO *aluno);
+HASHABERTA* inserirHashAberta(HASHABERTA *hash, ALUNO *aluno);
 HASHABERTA* expansao(HASHABERTA *hash);
 ALUNO* consultarMatriculaHashAberta(HASHABERTA *hash, int matricula);
-void excluirAlunoHashAberta(HASHABERTA *hash, int matricula);
+void finalizarHashAberta(HASHABERTA *hash);
+HASHABERTA* excluirAlunoHashAberta(HASHABERTA *hash, int matricula);
 
 
 
