@@ -161,6 +161,7 @@ HASHABERTA* excluirAlunoHashAberta(HASHABERTA *hash, int matricula){
 	if(aluno!=NULL){
 		hash->tabelaHash[aluno->posicao]->aluno	= NULL;
 	}
+	
 	return hash;
 }
 

@@ -6,6 +6,7 @@
 void inicializarLista(LISTA *lista){
 	lista->fim=NULL;
 	lista->inicio=NULL;
+	lista->tamanho=0;
 }
 
 int listaVazia(LISTA *lista){
@@ -26,6 +27,7 @@ void exibir(LISTA *lista){
 		printf("-----------------------------\n");
 		no = no->proximo;
 	}
+	printf("Tamanho da lista = %d\n", lista->tamanho);
 	printf("\n==============================================\n");
 }
 
@@ -83,7 +85,30 @@ void inserirLista(LISTA *lista, ALUNO *aluno){
 			}//else
 		}//else
 	}//else (aux==NULL)
+	lista->tamanho++;
+}
 
+void inserirFila(LISTA *lista, ALUNO *aluno){
+	NO *aux = (NO*) malloc(sizeof(NO)); //auxilia para percorrer a lista 
+	NO *noNovo = (NO*) malloc(sizeof(NO)); //criacao do novo NO
+	
+	//inicializando noNovo
+	noNovo->anterior = NULL;
+	noNovo->proximo = NULL;
+	noNovo->aluno = aluno;
+	
+	aux = lista->fim;
+	
+	//inserindo
+	if (aux==NULL){
+		lista->inicio = noNovo;
+		lista->fim = noNovo;
+	}else{
+		noNovo->anterior = aux;
+		aux->proximo = noNovo;
+		lista->fim = noNovo; 		
+	}
+	lista->tamanho++;
 }
 
 void remover(NO* lixo, LISTA* lista){

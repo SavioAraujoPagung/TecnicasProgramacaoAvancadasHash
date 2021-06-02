@@ -22,6 +22,7 @@ typedef struct No{
 typedef struct lista{
 	NO *inicio;
 	NO *fim;
+	int tamanho;
 }LISTA;
 
 void inicializarLista(LISTA *lista);
