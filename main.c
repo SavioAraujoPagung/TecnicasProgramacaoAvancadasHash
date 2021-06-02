@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 #include <locale.h>
-
+//#include "hash.h"
 #include "hash_aberta.h"
 
  int main(int argc, char *argv[]) {	
@@ -17,7 +17,11 @@
 
 	//criando a hashAberta
 	HASHABERTA *hash = (HASHABERTA*) malloc(sizeof(HASHABERTA*));
-	inicializar(hash, 7.0, 0.8, 3.0);
+	inicializar(hash, 100000.0, 0.9, 2.0);
+	
+	//criando a hashAberta
+	//HASHFECHADA *hashfechada = (HASHFECHADA*) malloc(sizeof(HASHFECHADA*));
+	//inicializarHash(hashfechada, 997);
 	
 	//provoando a hash com os alunos da FILA
 	NO *aux = (NO*) malloc(sizeof(NO));
@@ -64,6 +68,7 @@ void lerArquivo(LISTA* alunos, char url[]){
 }
     
 /**/
+
 
 
 
