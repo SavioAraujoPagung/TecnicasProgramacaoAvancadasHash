@@ -11,10 +11,11 @@
 typedef struct HashFechada{
 	LISTA **tabelaHash;
 	int tamanhoAtual;
-	double ocupacao;
+	int indiceMaior;
 }HASHFECHADA;
 
 void exibirHash(HASHFECHADA *hash);
+void exibirInformacoesHash(HASHFECHADA *hash);
 void inicializarHash(HASHFECHADA *hash, int tamanho);
 void inserirHash(HASHFECHADA *hash, ALUNO *aluno);
 ALUNO* consultarMatriculaHash(HASHFECHADA *hash, int matricula);

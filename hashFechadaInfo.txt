@@ -1,0 +1,94 @@
+******** TABELA HASH FECHADA ********
+-------------------------------------
+	POSICAO 0
+Nome = HIBUHE DINIOQIIJEWIONEVOJEZAPU
+Matricula = 13245630
+Nota = 95,00
+-----------------------------
+Nome = VESEIAIXITA HEVOZUMIFOFOFEVIHO
+Matricula = 54463710
+Nota = 58,00
+-----------------------------
+Tamanho da lista = 2
+
+==============================================
+	POSICAO 1
+Nome = VUTOUCAQ YUOPAFITARAESULIGIHUT
+Matricula = 21266601
+Nota = 89,00
+-----------------------------
+Tamanho da lista = 1
+
+==============================================
+	POSICAO 2
+
+Lista vazia
+Tamanho da lista = 0
+
+==============================================
+	POSICAO 3
+
+Lista vazia
+Tamanho da lista = 0
+
+==============================================
+	POSICAO 4
+Nome = DAKEV SOBIVUOPUVUIWOJUKICOMIAC
+Matricula = 81014474
+Nota = 31,00
+-----------------------------
+Tamanho da lista = 1
+
+==============================================
+	POSICAO 5
+Nome = Savio
+Matricula = 5
+Nota = 5,00
+-----------------------------
+Nome = FUWIVEU HIUZOUKUFOUDEGUAVEMUDA
+Matricula = 44864755
+Nota = 12,00
+-----------------------------
+Nome = WUFOJAONUVO VOCACIHISOSAYUBARO
+Matricula = 50971605
+Nota = 93,00
+-----------------------------
+Tamanho da lista = 3
+
+==============================================
+	POSICAO 6
+
+Lista vazia
+Tamanho da lista = 0
+
+==============================================
+	POSICAO 7
+Nome = MEBIA PEOUDAPOOZAZEYULEFOTAYAB
+Matricula = 74121117
+Nota = 23,00
+-----------------------------
+Tamanho da lista = 1
+
+==============================================
+	POSICAO 8
+
+Lista vazia
+Tamanho da lista = 0
+
+==============================================
+	POSICAO 9
+Nome = OHEXOHITOF NAORAGIVUMEEPAOFOGE
+Matricula = 62367539
+Nota = 4,00
+-----------------------------
+Nome = TEPEUQUMAJA DAISOIFAGANUAKAQUB
+Matricula = 85897439
+Nota = 9,00
+-----------------------------
+Nome = HEVATUZ XONEBOQIIPOONITONASANI
+Matricula = 97394369
+Nota = 31,00
+-----------------------------
+Tamanho da lista = 3
+
+==============================================

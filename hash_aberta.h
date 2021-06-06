@@ -1,14 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Lista.h"
- //(i)inserir um aluno na estrutura; 
- //(ii) consultar aluno por matrícula (dada a matrícula retorne o aluno caso ele exista); 
- //(iii) excluir aluno por matrícula (dada a matrícula exclua o aluno caso ele exista); 
- //(iv) exibir o conteúdo da hash inteira.
- 
+#include "hash.h"
+
 typedef struct NoHash{
 	ALUNO *aluno;
 	int continuar;
+	int tamanho;
 }NOHASH;
  
 typedef struct HashAberta{
@@ -17,6 +14,7 @@ typedef struct HashAberta{
 	double fatorCarga;
 	double tamanho;
 	double quantidade;
+	int indiceMaior;
 }HASHABERTA;
  
 void inicializar(HASHABERTA *hash, double tamanhoInicial, double fatorCarga, double expansao);

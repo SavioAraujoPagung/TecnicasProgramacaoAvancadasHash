@@ -5,6 +5,7 @@
 
 void inicializarHash(HASHFECHADA *hash, int tamanho){
 	hash->tamanhoAtual = tamanho;
+	hash->indiceMaior = 0;
 	int i=0;
 	hash->tabelaHash = (LISTA**) malloc(sizeof(LISTA**)*tamanho);
 	for (i=0; i<hash->tamanhoAtual; i++){
@@ -14,18 +15,33 @@ void inicializarHash(HASHFECHADA *hash, int tamanho){
 }
 
 void exibirHash(HASHFECHADA *hash){
+	FILE *hashFechadaInfo;
+	hashFechadaInfo = fopen("hashFechadaInfo.txt", "w");
 	int i=0;
-	printf("******** TABELA HASH FECHADA ********\n");
-	printf("-------------------------------------\n");
+	fprintf(hashFechadaInfo, "******** TABELA HASH FECHADA ********\n");
+	fprintf(hashFechadaInfo, "-------------------------------------\n");
 	for (i=0; i<hash->tamanhoAtual; i++){
-		printf("\tPOSICAO %d\n", i);
-		exibir(hash->tabelaHash[i]);
+		fprintf(hashFechadaInfo, "\tPOSICAO %d\n", i);
+		escreverTxt(hash->tabelaHash[i], hashFechadaInfo);
 	}
+	fclose(hashFechadaInfo);
+}
+
+void exibirInformacoesHash(HASHFECHADA *hash){
+	printf("\n******** TABELA HASH FECHADA ********\n");
+	printf("---------------------------------------\n");
+	printf("\tSOBRE\n");
+	printf("-> Indice Maior....%d\n", hash->indiceMaior);
+	printf("-> Tamanho Atual...%d\n", hash->tamanhoAtual);
+	printf("***************************************\n");
 }
 
 void inserirHash(HASHFECHADA *hash, ALUNO *aluno){
 	int posicao = funcaoHash(hash->tamanhoAtual, aluno->matricula);
 	inserirLista(hash->tabelaHash[posicao], aluno);
+	if (hash->tabelaHash[hash->indiceMaior]->tamanho < hash->tabelaHash[posicao]->tamanho){
+		hash->indiceMaior=posicao;	
+	}
 }
 int funcaoHash(int tamanhoAtual, int matricula){
 	int posicao;

@@ -1,0 +1,132 @@
+******** TABELA HASH ABERTA ********
+-------------------------------------
+	SOBRE
+-> Tamanho atual....20,00
+-> Expansão.........2,00
+-> Fator de Carga...0,90
+-> Quantidade.......11,00
+
+	POSICAO 0
+-> Sobre o aluno: 
+Nome      = OHEXOHITOF NAORAGIVUMEEPAOFOGE
+Matricula = 62367539
+Nota      = 4,00
+
+--- continuar: 1
+-----------------------------
+	POSICAO 1
+-> Sobre o aluno: 
+Nome      = VUTOUCAQ YUOPAFITARAESULIGIHUT
+Matricula = 21266601
+Nota      = 89,00
+
+--- continuar: 1
+-----------------------------
+	POSICAO 2
+
+--- continuar: 0
+-----------------------------
+	POSICAO 3
+
+--- continuar: 0
+-----------------------------
+	POSICAO 4
+
+--- continuar: 0
+-----------------------------
+	POSICAO 5
+-> Sobre o aluno: 
+Nome      = WUFOJAONUVO VOCACIHISOSAYUBARO
+Matricula = 50971605
+Nota      = 93,00
+
+--- continuar: 1
+-----------------------------
+	POSICAO 6
+-> Sobre o aluno: 
+Nome      = Savio
+Matricula = 5
+Nota      = 5,00
+
+--- continuar: 1
+-----------------------------
+	POSICAO 7
+
+--- continuar: 0
+-----------------------------
+	POSICAO 8
+
+--- continuar: 0
+-----------------------------
+	POSICAO 9
+-> Sobre o aluno: 
+Nome      = HEVATUZ XONEBOQIIPOONITONASANI
+Matricula = 97394369
+Nota      = 31,00
+
+--- continuar: 1
+-----------------------------
+	POSICAO 10
+-> Sobre o aluno: 
+Nome      = HIBUHE DINIOQIIJEWIONEVOJEZAPU
+Matricula = 13245630
+Nota      = 95,00
+
+--- continuar: 1
+-----------------------------
+	POSICAO 11
+-> Sobre o aluno: 
+Nome      = VESEIAIXITA HEVOZUMIFOFOFEVIHO
+Matricula = 54463710
+Nota      = 58,00
+
+--- continuar: 1
+-----------------------------
+	POSICAO 12
+
+--- continuar: 0
+-----------------------------
+	POSICAO 13
+
+--- continuar: 0
+-----------------------------
+	POSICAO 14
+-> Sobre o aluno: 
+Nome      = DAKEV SOBIVUOPUVUIWOJUKICOMIAC
+Matricula = 81014474
+Nota      = 31,00
+
+--- continuar: 1
+-----------------------------
+	POSICAO 15
+-> Sobre o aluno: 
+Nome      = FUWIVEU HIUZOUKUFOUDEGUAVEMUDA
+Matricula = 44864755
+Nota      = 12,00
+
+--- continuar: 1
+-----------------------------
+	POSICAO 16
+
+--- continuar: 0
+-----------------------------
+	POSICAO 17
+-> Sobre o aluno: 
+Nome      = MEBIA PEOUDAPOOZAZEYULEFOTAYAB
+Matricula = 74121117
+Nota      = 23,00
+
+--- continuar: 1
+-----------------------------
+	POSICAO 18
+
+--- continuar: 0
+-----------------------------
+	POSICAO 19
+-> Sobre o aluno: 
+Nome      = TEPEUQUMAJA DAISOIFAGANUAKAQUB
+Matricula = 85897439
+Nota      = 9,00
+
+--- continuar: 1
+-----------------------------

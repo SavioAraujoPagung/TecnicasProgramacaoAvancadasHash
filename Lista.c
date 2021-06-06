@@ -31,6 +31,24 @@ void exibir(LISTA *lista){
 	printf("\n==============================================\n");
 }
 
+void escreverTxt(LISTA *lista, FILE *file){
+	NO *no = (NO*) malloc(sizeof(NO));
+	no = lista->inicio;
+	if(no == NULL){
+		fprintf(file, "\nLista vazia\n");
+	}
+	while(no!=NULL){
+		fprintf(file, "Nome = %s\n", no->aluno->nome);
+		fprintf(file, "Matricula = %d\n", no->aluno->matricula);
+		fprintf(file, "Nota = %.2f\n", no->aluno->nota);
+		fprintf(file, "-----------------------------\n");
+		no = no->proximo;
+	}
+	fprintf(file, "Tamanho da lista = %d\n", lista->tamanho);
+	fprintf(file, "\n==============================================\n");
+}
+
+
 void exibirAluno(ALUNO *aluno){
 	if(aluno!=NULL){
 		printf("------ALUNO-FILTRADO--------\n");
